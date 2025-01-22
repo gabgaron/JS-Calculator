@@ -1,0 +1,60 @@
+body{
+    margin-left: 38%;
+    background-color: black;
+}
+
+.calculatorBody{
+    display: block;
+    text-align: center;
+    background-color: lightslategray;
+    width: 300px;
+    height: 433px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}
+.screenContainer input{
+    width: 280px;
+    height: 50px;
+    margin: 7px auto;
+    text-align: right;
+    font-weight: bolder;
+    font-size: xx-large;
+    background-color: rgb(34, 139, 34, 0.5);
+    color: rgb(0, 81, 0);
+}
+.memoryContainer button{
+    display: inline;
+    inline-size: 14.8%;
+    height: 20px;
+    background-color: rgb(78, 78, 78, 0.6);
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+}
+.memoryContainer button:hover{
+    background-color: rgb(78, 78, 78, 0.8);
+}
+.inputContainer{
+    margin: 10px auto;
+}
+.inputContainer button{
+    display: inline;
+    inline-size: 22%;
+    height: 50px;
+    margin: 2px;
+    background-color: rgb(78, 78, 78, 0.4);
+    border: none;
+    border-radius: 5px;
+    font-weight: bolder;
+    font-size: large;
+    transition: 0.25s;
+}
+.inputContainer button:hover{
+    background-color: rgb(78, 78, 78, 0.6);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
