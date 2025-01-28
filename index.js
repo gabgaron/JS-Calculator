@@ -1,3 +1,16 @@
+
+// Ici tu viens créer une liste de boutons et tu leur assigne une fonction. ici jai mis une fonction annonyme, mais tu pourrais linker avec une vrai fonction
+const buttons = document.querySelectorAll('[data-button]')
+for (const button of buttons) {
+    button.addEventListener("click", function (event) {
+        console.log("allo")
+    })
+}
+
+
+
+
+
 const display = document.getElementById("inputScreen");
 let equationDisplay = document.getElementById("equationScreen");
 let memoryPosition = document.getElementById("memoryDown");

@@ -1,3 +1,10 @@
+<!-- Dans tout ton document html, change tes "onclick" par des data attributes que tu vas aller selectionner et que tu vas faire des fonctions dans ton js-->
+<!-- https://blog.webdevsimplified.com/2020-10/javascript-data-attributes/ -->
+<!-- check html ligne 19-->
+
+<!-- Dans ton js, tu vas aller faire des "observer" qui vont etre ping quand il va etre cliqué ex dans ton code js-->
+
+<!-- Si tu veux avoir du fin, installe bootstrap comme librairie css -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +20,8 @@
             <input type="text" id="inputScreen" readonly>
         </div>
         <div class="memoryContainer">
-            <button onclick="memoryButton('clear')" id="memoryClear">MC</button>
-            <button onclick="memoryButton('recall')" id="memoryRecall">MR</button>
+            <button onclick="memoryButton('clear')" id="memoryClear" data-button="clear">MC</button>
+            <button onclick="memoryButton('recall')" id="memoryRecall" data-button="recall">MR</button>
             <button onclick="memoryButton('plus')" id="memoryPlus">M+</button>
             <button onclick="memoryButton('minus')" id="memoryMinus">M-</button>
             <button onclick="memoryButton('store')" id="memoryStore">MS</button>
@@ -37,7 +44,7 @@
             <button onclick="dis('5')" id="btn5">5</button>
             <button onclick="dis('6')" id="btn6">6</button>
             <button onclick="dis('-')" id="btnMinus">-</button><br>
-            <button onclick="dis('1')" id="btn1" value="1" onclick="keyPress()">1</button>
+            <button onclick="dis('1')" id="btn1" value="1" onclick="keyPress()">1</button> <!-- Huh ? -->
             <button onclick="dis('2')" id="btn2">2</button>
             <button onclick="dis('3')" id="btn3">3</button>
             <button onclick="dis('+')" id="btnPlus">+</button><br>
