@@ -9,41 +9,42 @@
 <body>
     <div class="calculatorBody">
         <div class="screenContainer">
-            <input type="number" id="inputScreen">
+            <input type="text" id="equationScreen" readonly>
+            <input type="text" id="inputScreen" readonly>
         </div>
         <div class="memoryContainer">
-            <button id="memoryClear">MC</button>
-            <button id="memoryRecall">MR</button>
-            <button id="memoryPlus">M+</button>
-            <button id="memoryMinus">M-</button>
-            <button id="memoryStore">MS</button>
-            <button id="memoryDown">M&#8615;</button>
+            <button onclick="memoryButton('clear')" id="memoryClear">MC</button>
+            <button onclick="memoryButton('recall')" id="memoryRecall">MR</button>
+            <button onclick="memoryButton('plus')" id="memoryPlus">M+</button>
+            <button onclick="memoryButton('minus')" id="memoryMinus">M-</button>
+            <button onclick="memoryButton('store')" id="memoryStore">MS</button>
+            <button onclick="memoryButton('cycle')" id="memoryDown">M&#x25BC;</button>
         </div>
         <div class="inputContainer">
-            <button id="btnPercent">%</button>
-            <button id="btnCE">CE</button>
-            <button id="btnC">C</button>
-            <button id="btnBackspace">⌫</button><br>
-            <button id="btnReciprocal">1/x</button>
-            <button id="btnSquare">x&sup2;</button>
-            <button id="btnSqrt">&sup2;&radic;x</button>
-            <button id="btnDivide">/</button><br>
-            <button id="btn7">7</button>
-            <button id="btn8">8</button>
-            <button id="btn9">9</button>
-            <button id="btnMultiply">*</button><br>
-            <button id="btn4">4</button>
-            <button id="btn5">5</button>
-            <button id="btn6">6</button>
-            <button id="btnMinus">-</button><br>
-            <button id="btn1" onclick="keyPress()">1</button>
-            <button id="btn2">2</button>
-            <button id="btn3">3</button>
-            <button id="btnPlus">+</button><br>
-            <button id="btnPlusMinus">+/-</button>
-            <button id="btn0">0</button>
-            <button id="btnDot">.</button>
-            <button id="btnEqual">=</button>
+            <button onclick="dis('%')" id="btnPercent">%</button>
+            <button onclick="clearInput()" id="btnCE">CE</button>
+            <button onclick="clr()" id="btnC">C</button>
+            <button onclick="backspace()" id="btnBackspace">⌫</button><br>
+            <button onclick="dis('reciprocal')" id="btnReciprocal">1/x</button>
+            <button onclick="dis('square')" id="btnSquare">x&sup2;</button>
+            <button onclick="dis('squareroot')" id="btnSqrt">&sup2;&radic;x</button>
+            <button onclick="dis('/')" id="btnDivide">/</button><br>
+            <button onclick="dis('7')" id="btn7">7</button>
+            <button onclick="dis('8')" id="btn8">8</button>
+            <button onclick="dis('9')" id="btn9">9</button>
+            <button onclick="dis('*')" id="btnMultiply">*</button><br>
+            <button onclick="dis('4')" id="btn4">4</button>
+            <button onclick="dis('5')" id="btn5">5</button>
+            <button onclick="dis('6')" id="btn6">6</button>
+            <button onclick="dis('-')" id="btnMinus">-</button><br>
+            <button onclick="dis('1')" id="btn1" value="1" onclick="keyPress()">1</button>
+            <button onclick="dis('2')" id="btn2">2</button>
+            <button onclick="dis('3')" id="btn3">3</button>
+            <button onclick="dis('+')" id="btnPlus">+</button><br>
+            <button onclick="plusMinus()" id="btnPlusMinus">+/-</button>
+            <button onclick="dis('0')" id="btn0">0</button>
+            <button onclick="dis('.')" id="btnDot">.</button>
+            <button onclick="calc()" id="btnEqual">=</button>
         </div>
     </div>
     <script src="index.js"></script>
