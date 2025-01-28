@@ -71,21 +71,21 @@ function memoryButton(input){
         case "recall":
             indexCheck(memoryIndex);
             if(outputValue){
-            display.value = memoryArray[memoryIndex];
+                display.value = memoryArray[memoryIndex];
             }
             break;
         case "plus":
             indexCheck(memoryIndex);
             if(outputValue){
-            total = `${equationDisplay.value}+${memoryArray[memoryIndex]}`;
-            equationDisplay.value = eval(total);
+                total = `${equationDisplay.value}+${memoryArray[memoryIndex]}`;
+                equationDisplay.value = eval(total);
             }
             break;
         case "minus":
             indexCheck(memoryIndex);
             if(outputValue){
-            total = `${equationDisplay.value}-${memoryArray[memoryIndex]}`;
-            equationDisplay.value = eval(total);
+                total = `${equationDisplay.value}-${memoryArray[memoryIndex]}`;
+                equationDisplay.value = eval(total);
             }
             break;
         case "clear":
@@ -104,11 +104,11 @@ function memoryButton(input){
             }
             break;
         case "cycle":
-            if(memoryIndex < 5 && memoryIndex < memoryArray.length){
+            if(memoryIndex < 5 && memoryIndex + 1 < memoryArray.length){
                 memoryIndex++;
-                memoryPosition.textContent = `M${memoryIndex}`;
+                memoryPosition.textContent = `M${memoryIndex + 1}`;
                 console.log(memoryArray[memoryIndex]);
-            }else if(memoryIndex = memoryArray.length){
+            }else if(memoryIndex + 1 == memoryArray.length){
                 memoryIndex = 0;
                 memoryPosition.textContent = `M${memoryIndex + 1}`;
             }else if(memoryArray.length == 0){
@@ -118,10 +118,8 @@ function memoryButton(input){
 }
 
 function indexCheck(value){
-    if(value == 0 && memoryArray.length != 1){
+    if(value == 0 && memoryArray.length == 0){
         window.alert("There are no stored values!");
         return outputValue = false;
-    }else if(value == memoryArray.length){
-        return value--;
     }
 }
