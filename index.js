@@ -5,8 +5,9 @@ let indexArray = [];
 let symbolIndex;
 let noSymbol;
 let memoryArray =[];
-let memoryIndex= -1;
+let memoryIndex= 0;
 const downwardArrow = String.fromCharCode(0x25BC);
+let outputValue;
 
 function dis(input){
     if(input == "+" || input == "-" || input == "*" || input == "/"){
@@ -63,61 +64,64 @@ function backspace(){
 }
 
 function memoryButton(input){
+    console.log(memoryIndex, input);
     let total;
-    if(input == "clear"){
-        memoryArray = [];
-    }else if(input == "recall"){
-        if(memoryArray.length == 0){
-            arrayLengthCheck("empty");
-        }else if(memoryIndex == -1){
-            arrayLengthCheck("select");
-        }else{
-        display.value = memoryArray[memoryIndex];
-    }
-    }else if(input == "plus"){
-        if(memoryArray.length == 0){
-            arrayLengthCheck("empty");
-        }else if(memoryIndex == -1){
-            arrayLengthCheck("select");
-        }else{
-        total = `${equationDisplay.value}+${memoryArray[memoryIndex]}`;
-        equationDisplay.value = eval(total);
-    }
-    }else if(input == "minus"){
-        if(memoryArray.length == 0){
-           arrayLengthCheck("empty");
-        }else if(memoryIndex == -1){
-            arrayLengthCheck("select");
-        }else{
-        total = `${equationDisplay.value}-${memoryArray[memoryIndex]}`;
-        equationDisplay.value = eval(total);
-    }
-    }else if(input == "store"){
-        if(!equationDisplay.value){
-            window.alert("There are no values to store")
-        }else if(memoryArray.length < 5 && equationDisplay.value){
-            memoryArray.push(equationDisplay.value);
-        }else{
-            window.alert("You have reached the maximum amount of stored values");
-        }
-    }else if(input == "cycle"){
-        memoryIndex++;
-        if(memoryIndex < 5 && memoryIndex < memoryArray.length){
-        memoryPosition.textContent = `M${memoryIndex + 1}`;
-        console.log(memoryArray[memoryIndex]);
-        }else if(memoryIndex = memoryArray.length){
-            memoryIndex = -1;
+    outputValue = true;
+    switch(input){
+        case "recall":
+            indexCheck(memoryIndex);
+            if(outputValue){
+            display.value = memoryArray[memoryIndex];
+            }
+            break;
+        case "plus":
+            indexCheck(memoryIndex);
+            if(outputValue){
+            total = `${equationDisplay.value}+${memoryArray[memoryIndex]}`;
+            equationDisplay.value = eval(total);
+            }
+            break;
+        case "minus":
+            indexCheck(memoryIndex);
+            if(outputValue){
+            total = `${equationDisplay.value}-${memoryArray[memoryIndex]}`;
+            equationDisplay.value = eval(total);
+            }
+            break;
+        case "clear":
+            memoryIndex = 0;
             memoryPosition.textContent = `M${downwardArrow}`;
-        }else if(memoryArray.length == 0){
-            window.alert("There are no stored values!")
-        }
+            memoryArray = [];
+            break;
+        case "store":
+            if(!equationDisplay.value){
+                window.alert("There are no values to store")
+            }else if(memoryArray.length < 5 && equationDisplay.value){
+                memoryArray.push(equationDisplay.value);
+                memoryPosition.textContent = `M${memoryIndex + 1}`;
+            }else{
+                window.alert("You have reached the maximum amount of stored values");
+            }
+            break;
+        case "cycle":
+            if(memoryIndex < 5 && memoryIndex < memoryArray.length){
+                memoryIndex++;
+                memoryPosition.textContent = `M${memoryIndex}`;
+                console.log(memoryArray[memoryIndex]);
+            }else if(memoryIndex = memoryArray.length){
+                memoryIndex = 0;
+                memoryPosition.textContent = `M${memoryIndex + 1}`;
+            }else if(memoryArray.length == 0){
+                window.alert("There are no stored values!");
+            }
     }
 }
 
-function arrayLengthCheck(value){
-    if(value == "empty"){
-        window.alert("There are no stored values!")
-    }else if(value == "select"){
-        window.alert(`Please select a stored value using the M${downwardArrow} button!`);
+function indexCheck(value){
+    if(value == 0 && memoryArray.length != 1){
+        window.alert("There are no stored values!");
+        return outputValue = false;
+    }else if(value == memoryArray.length){
+        return value--;
     }
 }
